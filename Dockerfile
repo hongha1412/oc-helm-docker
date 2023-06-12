@@ -10,4 +10,8 @@ RUN wget -q -O /etc/apk/keys/sgerrand.rsa.pub https://alpine-pkgs.sgerrand.com/s
     tar -xvf oc.tar && \
     chmod +x oc && mv oc /usr/local/bin/oc
 
+RUN mkdir /.kube
+RUN chgrp -R 0 /.kube && chmod -R g=u /.kube
+RUN chgrp -R 0 . && chmod -R g=u .
+
 CMD sh
